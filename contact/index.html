@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacts</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .container{
+        width: 500px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    }
+
+    h1{
+        text-align: center;
+        color: #333;
+    }
+
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td{
+        border: 1px solid #ccc;
+        padding: 12px;
+        text-align: center;
+    }
+
+    th{
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    tr:nth-child(even){
+        background-color: #f9f9f9;
+    }
+
+    button{
+        display: block;
+        margin: 20px auto;
+        padding: 12px 20px;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover{
+        background-color: #45a049;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Contacts Database</h1>
+
+    <table>
+        <tr>
+            <th>Slot #</th>
+            <th>Number</th>
+        </tr>
+
+        <tr>
+            <td>0</td>
+            <td>Arnold</td>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>Sly</td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>Dwayne</td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>Vin</td>
+        </tr>
+
+        <tr>
+            <td>4</td>
+            <td>JCVD</td>
+        </tr>
+
+        <tr>
+            <td>5</td>
+            <td>Steven</td>
+        </tr>
+    </table>
+
+    <button onclick="searchContact()">
+        Search Contact
+    </button>
+
+</div>
+
+<script>
+
+    let contacts = ["Arnold", "Sly", "Dwayne", "Vin", "JCVD", "Steven"];
+
+    function searchContact(){
+
+        let again = "yes";
+
+        while(again === "yes"){
+
+            let slot = prompt("Enter a slot number between 0 and 5:");
+
+            let found = false;
+
+            let i = 0;
+
+            while(i < contacts.length){
+
+                if(i == slot){
+
+                    alert("You selected " + contacts[i] + ".");
+
+                    found = true;
+                }
+
+                i++;
+            }
+
+            if(found === false){
+
+                alert("Name not found. Please try again.");
+            }
+
+            again = prompt("Would you like to search for another name? Type yes or no.");
+
+            if(again !== null){
+                again = again.toLowerCase();
+            }
+        }
+
+        alert("Thanks for using the Contacts Database!");
+
+    }
+
+</script>
+
+</body>
+</html>
